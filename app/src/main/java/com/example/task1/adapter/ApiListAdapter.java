@@ -1,6 +1,5 @@
 package com.example.task1.adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.task1.databinding.AdapterApiListBinding;
+import com.example.task1.interfaces.OnItemClickListener;
 import com.example.task1.model.APIData;
 
 import java.util.Collections;
@@ -17,10 +17,15 @@ import java.util.List;
 public class ApiListAdapter extends RecyclerView.Adapter<ApiListAdapter.ViewHolder> {
 
     private List<APIData> listOfAPIs = Collections.emptyList();
+    private OnItemClickListener listener = null;
 
     public void setAPIDataList(List<APIData> listOfAPIs){
         this.listOfAPIs = listOfAPIs;
         notifyDataSetChanged();
+    }
+
+    public void setListener(OnItemClickListener listener){
+        this.listener = listener;
     }
 
     @NonNull
@@ -52,6 +57,13 @@ public class ApiListAdapter extends RecyclerView.Adapter<ApiListAdapter.ViewHold
         public void bindView(APIData apiData) {
             binding.tvAPIName.setText(apiData.API);
             binding.tvAPIDesc.setText(apiData.Description);
+
+            binding.getRoot().setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onItemClick(getAbsoluteAdapterPosition());
+                }
+            });
         }
     }
 }

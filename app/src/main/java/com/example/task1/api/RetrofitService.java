@@ -1,7 +1,5 @@
 package com.example.task1.api;
 
-import com.example.task1.APIApplication;
-
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;

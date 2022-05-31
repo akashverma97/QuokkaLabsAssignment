@@ -24,4 +24,10 @@
         android:textSize="@dimen/_14ssp"
         tools:text="Desc" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:background="@android:color/black" />
+
 </LinearLayout>

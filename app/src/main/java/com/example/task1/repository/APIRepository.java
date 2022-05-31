@@ -7,8 +7,6 @@ import com.example.task1.api.ApiService;
 import com.example.task1.api.RetrofitService;
 import com.example.task1.model.APIResponseModel;
 
-import java.lang.invoke.MutableCallSite;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
